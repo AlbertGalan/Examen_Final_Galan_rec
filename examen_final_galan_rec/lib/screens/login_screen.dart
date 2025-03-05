@@ -8,9 +8,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
+  final _usernameController = TextEditingController();//Pasam un camp d'usuari i una contrasenya que podrem modificar
   final _passwordController = TextEditingController();
-  bool _rememberMe = false;
+  bool _rememberMe = false; //Aqui com veim se carrega un boolea que correspon al check box i que manetjara SharedPreferences
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  _saveCredentials() async {
+  _saveCredentials() async { //Això es un metode que guarda les credencials en cas de que pitjem el check box
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (_rememberMe) {
       await prefs.setString('username', _usernameController.text);

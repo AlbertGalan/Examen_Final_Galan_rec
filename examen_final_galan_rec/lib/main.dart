@@ -4,14 +4,13 @@ import '/services/services.dart';
 import '/screens/home_screen.dart';
 import '/screens/login_screen.dart';
 import '/screens/details_screen.dart';
-import '/services/services_ip.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Service()), // Provee el UserService
-        ChangeNotifierProvider(create: (_) => ServicesIP()), // Provee el ServicesIP
+        
       ],
       child: MyApp(),
     ),

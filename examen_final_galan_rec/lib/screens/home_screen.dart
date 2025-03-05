@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/services.dart';
+import '../models/geo.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -22,18 +23,7 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final user = userService.users[index];
                 return ListTile(
-                  title: Text(user['nom'] ?? 'Sense Nom'),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(user['id'].toString() ?? 'Sense nom'),
-                      Text(user['email'] ?? 'Sense email'),
-                    ],
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () => userService.deleteUser(user['id'].toString()),
-                  ),
+                  title: Text(user['nom'] ?? 'Sense Nom'),  //Li deim que només mostri es nom
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -116,6 +106,7 @@ class HomeScreen extends StatelessWidget {
                   'photo': _photoController.text,
                 };
                 userService.createUser(newUser);
+                userService.loadUsers();
                 Navigator.pop(context);
               },
               child: Text('Guardar'),

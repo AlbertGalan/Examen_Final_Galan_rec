@@ -21,7 +21,7 @@ class DetailScreen extends StatelessWidget {
             Text('Adreça: ${user['address'] ?? 'Sense Direcció'}'),
             SizedBox(height: 20),
             if (user['foto'] != null && user['foto'].isNotEmpty)
-              Image.network(user['foto']),
+              Image.network(user['foto']), //Aqui li deim que empri el Widget Image per mostrar la foto
           ],
         ),
       ),
