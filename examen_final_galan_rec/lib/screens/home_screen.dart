@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  void _showAddUserDialog(BuildContext context, Service userService) {
+  void _showAddUserDialog(BuildContext context, Service userService) { //Aqui tenim un dialog que ens permet afegir un usuari
     final _idController = TextEditingController();
     final _nomController = TextEditingController();
     final _descripcioController = TextEditingController();
